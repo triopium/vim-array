@@ -22,8 +22,7 @@ function! array#ListSubstitute(list,pat,sub,flag)
 endfunction
 "let s:lst=['aa','ab','ac','ada']
 ""let s:dic={'a':'ehh','b':'hell'}
-""echo s:dic{1}
-""call ListSubstitute(s:lst,'a','',0)
+""echo array#ListSubstitute(s:lst,'a','',0)
 
 "OPERATE ON WHOLE LIST:"
 function! array#ListOperate(list,operator)
@@ -35,7 +34,7 @@ endfunction
 ""let rnum=genstr#randnum(2,10,10)
 ""echo array#ListOperate(rnum,'*')
 
-"GET MAXIMUM LENGTH OF PROVIDED LISTS"
+"GET MAXIMUM LENGTH OF PROVIDED LISTS:"
 function! array#ListsGetMaxLength(...)
 	let l:mlent=0
 	for l:i in a:000
@@ -50,7 +49,7 @@ endfunction
 ""echo array#ListsGetMaxLength(lst1,lst2,lst3)
 
 "JOIN LISTS BY ITEMS:"
-function! array#ListsCat(lst1,lst2)
+function! array#ListsCatByItems(lst1,lst2)
 	let l:j=0
 	let l:joined=[]
 	for l:i in a:lst1
@@ -62,10 +61,10 @@ function! array#ListsCat(lst1,lst2)
 endfunction
 ""let lst1=["ac","ad"]
 ""let lst2=["ab","ae"]
-""echo array#ListsCat(lst1,lst2)
+""echo array#ListsCatByItems(lst1,lst2)
 
 "CHECK LIST AGAINST ANOTHER LIST AND RETURN LIST JUNCTION:"
-function! array#ListJunction(mainList,checkedList)
+function! array#ListsConjunction(mainList,checkedList)
 	let l:validItems=[]
 	for l:i in a:checkedList
 		if matchstr(a:mainList,l:i) == l:i
@@ -77,7 +76,7 @@ endfunction
 "Test array#ListJunction"
 ""let tlista=["a", "b"]
 ""let tlistb=["b", "c", "d"]
-""echo array#ListJunction(tlista,tlistb)
+""echo array#ListsConjunction(tlista,tlistb)
 
 "SUM ALL ATOMS IN LIST:
 function! array#ListSum(list)
@@ -94,6 +93,8 @@ function! array#GetMaxWidth(list)
 	let l:maxwidth=max(map(copy(a:list),'strdisplaywidth(v:val)'))
 	return l:maxwidth
 endfunction
+""let tlistb=["a", "ab", "abc"]
+""echo array#GetMaxWidth(tlistb)
 
 "GET MAXIMUM LINE WIDTH IN BUFFER:"
 function! array#BufferLinesWidthMax()
@@ -101,3 +102,4 @@ function! array#BufferLinesWidthMax()
 	let l:maxwidth=max(map(l:lines,'strdisplaywidth(v:val)'))
 	return l:maxwidth
 endfunction
+""echo array#BufferLinesWidthMax()
