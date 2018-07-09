@@ -31,7 +31,7 @@ function! array#ListOperate(list,operator)
 	return l:result
 endfunction
 ""Test: array#ListOperate
-""let rnum=genstr#randnum(2,10,10)
+""let rnum=genstr#NumVecRand(2,10,10)
 ""echo array#ListOperate(rnum,'*')
 
 "GET MAXIMUM LENGTH OF PROVIDED LISTS:"
